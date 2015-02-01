@@ -1,0 +1,28 @@
+{
+  "id": "webfrontend",
+  "kind": "ReplicationController",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "replicas": 3,
+    "replicaSelector": {"name": "webfrontend"},
+    "podTemplate": {
+      "desiredState": {
+         "manifest": {
+           "version": "v1beta1",
+           "id": "webfrontend",
+           "containers": [{
+             "name": "webfrontend",
+             "image": "jonlangemak/docker:web_container_80",
+             "cpu": 100,
+             "memory": 50000000,
+             "ports": [{"containerPort": 80, "hostPort": 8000}]
+           }]
+         }
+       },
+       "labels": {
+         "name": "webfrontend",
+         "uses": "webserver"
+       }
+      }},
+  "labels": {"name": "webfrontend"}
+}
