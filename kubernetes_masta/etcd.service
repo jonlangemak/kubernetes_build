@@ -4,7 +4,6 @@ After=network.target
  
 [Service]
 Type=simple
-#etcd logs to the journal directly, suppress double logging
 StandardOutput=null
 WorkingDirectory=/opt/etcd
 ExecStart=/opt/etcd/etcd
