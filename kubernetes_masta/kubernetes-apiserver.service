@@ -12,7 +12,6 @@ ExecStart=/opt/kubernetes/kube-apiserver \
 --etcd_servers=http://127.0.0.1:4001 \
 --portal_net=10.100.0.0/16 \
 --logtostderr=true
-ExecStartPost=-/bin/bash -c "until /usr/bin/curl http://127.0.0.1:8080; do echo \"waiting for API server to come online...\"; sleep 3; done"
 Restart=on-failure
 RestartSec=5
 
